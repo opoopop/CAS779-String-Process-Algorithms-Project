@@ -356,7 +356,148 @@ void get_ans() {
 //随机生成输入文件;
 int st = 1;
 int Ed = 1;
-void get_in() {
+void get_in() {// file 2
+    for (int i = st; i <= Ed; i++) {
+        string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
+        const char* filenameIn = _filenameIn.data();//string转化成char *;
+        freopen(filenameIn, "w", stdout);//开启输出模式;
+        int t = 3;
+        cout << t << "\n";
+        for (int k = 0; k < t; k++)
+        {
+            string s;
+            if (k == 0)
+            {
+
+                int n = 50;
+                for (int i = 0; i < n; i++)s.push_back('a');
+                int q = 100;
+                cout << n << " " << q << "\n";
+                cout << s << "\n";
+
+              
+                while (q--)
+                {
+                    int rd = rand() % 45;
+                    if (!rd)
+                    {
+                        cout << 1 << "\n" << 1 + rand() % 25 << " " << char('a' + rand() % 15) << "\n";
+
+                    }
+                    else
+                    {
+                        cout << '2' << "\n";
+                        int m = 1 + rand() % 2;
+                        cout << m << "\n";
+                        int l = rand() % 10 + 1;
+                        for (int i = 0; i < m; i++)
+                        {
+                            int r = l + 1 + rand() % 15;
+                            cout << l << " " << r << "\n";
+                            l = r + 1 + rand() % 15;
+                        }
+                    }
+
+                }
+
+            }
+            else if (k == 1)
+            {
+
+
+                int n = 20;
+                for (int i = 0; i < n; i++)s.push_back('a'+rand()%20);
+                int q = 500;
+                cout << n << " " << q << "\n";
+                cout << s << "\n";
+
+                while (q>=250)
+                {
+                    q--;
+
+                    int rd = rand() % 8;
+                    if (!rd)
+                    {
+                        cout << 1 << "\n" << 1 + rand() % 20 << " " << char('a' + rand() % 20) << "\n";
+
+                    }
+                    else
+                    {
+                        cout << '2' << "\n";
+                        int m = 1 + rand() % 2;
+                        cout << m << "\n";
+                        int l = rand() % 3 + 1;
+                        for (int i = 0; i < m; i++)
+                        {
+                            int r = l + 1 + rand() % 5;
+                            cout << l << " " << r << "\n";
+                            l = r + 1 + rand() % 5;
+                        }
+                    }
+
+                }
+                while (q--)
+                {
+                    int rd = rand() % 8;
+                    if (!rd)
+                    {
+                        cout << 1 << "\n" << 1 + rand() % 25 << " " << char('b') << "\n";
+
+                    }
+                    else
+                    {
+                        cout << '2' << "\n";
+                        int m = 1 + rand() % 2;
+                        cout << m << "\n";
+                        int l = rand() % 3 + 1;
+                        for (int i = 0; i < m; i++)
+                        {
+                            int r = l + 1 + rand() % 5;
+                            cout << l << " " << r << "\n";
+                            l = r + 1 + rand() % 5;
+                        }
+                    }
+
+                }
+            }
+            else
+            {
+                int n = 20;
+                for (int i = 0; i < n; i++)s.push_back('a'+rand()%20);
+                int q = 500;
+                cout << n << " " << q << "\n";
+                cout << s << "\n";
+
+                while (q--)
+                {
+                    int rd = rand() % 2;
+                    if (rd)
+                    {
+                        cout << '2' << "\n";
+                        int m = 1 + rand() % 3;
+                        cout << m << "\n";
+                        int l = 1+rand() % 3;
+                        for (int i = 0; i < m; i++)
+                        {
+                            int r = l + 1 + rand() % 2;
+                            cout << l << " " << r << "\n";
+                            l = r + 1 + rand() % 2;
+                        }
+                    }
+                    else
+                    {
+                        cout << 1 << "\n";
+                        cout << rand() % n + 1 << " " << char('a' + rand() % 20) << "\n";
+                    }
+
+                }
+            }
+
+
+        }
+    }
+}
+void get_in() { //file 1
     for (int i = st; i <= Ed; i++) {
         string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
         const char* filenameIn = _filenameIn.data();//string转化成char *;
