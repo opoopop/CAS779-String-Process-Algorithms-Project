@@ -497,6 +497,49 @@ void get_in() {// file 2
         }
     }
 }
+// file 4 m=1 l=1 r=1e5
+void get_in() {//file 5
+    for (int i = st; i <= Ed; i++) {
+        string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
+        const char* filenameIn = _filenameIn.data();//string转化成char *;
+        freopen(filenameIn, "w", stdout);//开启输出模式;
+        int t = 1;
+        cout << t << "\n";
+        for (int k = 0; k < t; k++)
+        {
+            string s;
+            // input size q*m*2
+            // solve() time complexity , upper bound q*m*log N 
+                int n = 100000;
+                for (int i = 0; i < n; i++)s.push_back('a');
+                int q = 100000;
+                cout << n << " " << q << "\n";
+                cout << s << "\n";
+
+              
+                while (q--)
+                {
+
+                        cout << '2' << "\n";
+                        int m = 2;
+                        cout << m << "\n";
+                        int l = rand() % 666 + 1;
+                        for (int i = 0; i < m; i++)//1000
+                        {
+                            int r = l + 10000+rand()%100;
+                            cout << l << " " << r << "\n";
+                            l = r + 12+rand()%500;
+                        }
+
+
+                }
+
+  
+
+
+        }
+    }
+}
 void get_in() { //file 1
     for (int i = st; i <= Ed; i++) {
         string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
