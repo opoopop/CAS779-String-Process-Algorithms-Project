@@ -679,6 +679,169 @@ void get_in() {//file 6
         }
     }
 }
+void get_in8() {
+    for (int i = st; i <= Ed; i++) {
+        string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
+        const char* filenameIn = _filenameIn.data();//string转化成char *;
+        freopen(filenameIn, "w", stdout);//开启输出模式;
+        int t = 1;
+        cout << t << "\n";
+        while(t--)// 200 of s 
+        {
+                string s;
+
+                int n = 100000;
+                for (int j = 1; j <= n; j++)s.push_back('a');
+ 
+
+
+                int q = 10;
+
+
+                cout << n << " " << q << "\n";
+                cout << s << "\n";
+                while (q--)
+                {
+
+                        cout << '2' << "\n";
+                        vector<pair<int,int>>ask;
+                        int m = (n+1) / 2;
+                        cout << m << "\n";
+                        for (int j = 1; j <= n; j += 2)
+                        {
+                            cout << j << " " << j << "\n";
+
+                        }
+
+
+
+
+                }
+
+  
+
+
+        }
+    }
+}
+void get_in7() {
+    for (int i = st; i <= Ed; i++) {
+        string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
+        const char* filenameIn = _filenameIn.data();//string转化成char *;
+        freopen(filenameIn, "w", stdout);//开启输出模式;
+        int t = 1;
+        cout << t << "\n";
+        while(t--)// 200 of s 
+        {
+                string s;
+
+                int n = 100000;
+                for (int j = 1; j <= n; j++)s.push_back('a');
+ 
+
+
+                int q = 100000;
+
+
+                cout << n << " " << q << "\n";
+                cout << s << "\n";
+                while (q--)
+                {
+
+                        cout << '2' << "\n";
+                        vector<pair<int,int>>ask;
+
+                        int cutl = 1;
+                        int pp = 3;
+                        while (pp--&&cutl <= n)// randomly cut
+                        {
+                            int cutr = cutl + 10000 + rand() % 10000;
+                            //if(pp%2)cutr = cutl + 9999 + rand() % 10000;
+                            cutr = min(cutr, n);
+                            ask.push_back({ cutl,cutr });
+                            if(pp%2)cutl = cutr + 1+rand()%1000;
+                            else cutl = cutr + 10000 + rand() % 1000;
+                        }
+
+
+
+                        int m = ask.size();
+                        cout << m << "\n";
+                        for (auto j : ask)
+                        {
+                            cout << j.first << " " << j.second << "\n";
+                        }
+
+
+
+                }
+
+  
+
+
+        }
+    }
+}
+void get_in17() {
+    for (int i = st; i <= Ed; i++) {
+        string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
+        const char* filenameIn = _filenameIn.data();//string转化成char *;
+        freopen(filenameIn, "w", stdout);//开启输出模式;
+        int t = 1;
+        cout << t << "\n";
+        while(t--)// 200 of s 
+        {
+                string s;
+
+                int n = 100000;
+                for (int j = 1; j <= n; j++)s.push_back('a');
+ 
+
+
+                int q = 1000;
+
+
+                cout << n << " " << q << "\n";
+                cout << s << "\n";
+                while (q--)
+                {
+
+                        cout << '2' << "\n";
+                        vector<pair<int,int>>ask;
+
+                        int cutl = 1;
+                        int pp = 500 + rand()% 100;
+                        while (pp--&&cutl <= n)// randomly cut
+                        {
+                            int cutr = cutl + 2 + rand() % 100;
+                            if(pp%2)cutr = cutl + 2 + rand() % 5;
+                            cutr = min(cutr, n);
+                            ask.push_back({ cutl,cutr });
+                            if(pp%2)cutl = cutr + 1+rand()%10;
+                            else cutl = cutr + 73 + rand() % 100;
+                        }
+
+
+
+                        int m = ask.size();
+                        cout << m << "\n";
+                        for (auto j : ask)
+                        {
+                            cout << j.first << " " << j.second << "\n";
+                        }
+
+
+
+                }
+
+  
+
+
+        }
+    }
+}
+
+
 void get_in() { //file 1
     for (int i = st; i <= Ed; i++) {
         string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
