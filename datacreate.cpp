@@ -557,6 +557,85 @@ void get_in() {//file 3
         }
     }
 }
+void get_in() {// file 4
+    for (int i = st; i <= Ed; i++) {
+        string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
+        const char* filenameIn = _filenameIn.data();//string转化成char *;
+        freopen(filenameIn, "w", stdout);//开启输出模式;
+        int t = 50;
+        cout << t << "\n";
+        while(t--)// 200 of s 
+        {
+                string s;
+
+                int n = 0;
+                string asks;
+                vector<pair<int, int>>ask;
+                for (int j = 0; j <= 50 + rand() % 30; j++)
+                {
+                    asks.push_back('a' + rand() % 20);
+                }
+                string tp = asks; reverse(tp.begin(), tp.end());
+                asks.append(tp);
+                //create a random panlidorm
+
+                int cutl = 1;
+                while (cutl <= asks.size())// randomly cut
+                {
+                    int cutr = cutl + 3 + rand() % 20;
+                    cutr = min(cutr, int(asks.size()) );
+                    ask.push_back({ cutl,cutr });
+                    cutl = cutr + 1;
+                }
+                
+
+                for (int j = 0; j < ask.size(); j++)
+                {
+
+                    for (int k = 0; k < 2 + rand() % 40; k++)
+                    {
+                        s.push_back('a' + rand() % 20);// randomly add some chars  on the middle
+                    }
+                    
+
+                    int opop = s.size();
+                    int llen = ask[j].second - ask[j].first + 1;
+                    s.append(asks.substr(ask[j].first - 1, llen));
+                    ask[j].first=opop+1;
+                    ask[j].second=ask[j].first+llen-1;
+
+                    for (int k = 0; k < 2 + rand() % 40; k++)
+                    {
+                        s.push_back('a' + rand() % 20);
+                    }
+                }
+
+
+                int q = 1;
+                n = s.size();
+                cout << n << " " << q << "\n";
+                cout << s << "\n";
+                while (q--)
+                {
+
+                        cout << '2' << "\n";
+                        int m = ask.size();
+                        cout << m << "\n";
+                        for (auto j : ask)
+                        {
+                            cout << j.first << " " << j.second << "\n";
+                        }
+
+
+
+                }
+
+  
+
+
+        }
+    }
+}
 // file 5 m=1 l=1 r=1e5
 void get_in() {//file 6
     for (int i = st; i <= Ed; i++) {
