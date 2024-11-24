@@ -496,8 +496,69 @@ void get_in() {// file 2
         }
     }
 }
-// file 4 m=1 l=1 r=1e5
-void get_in() {//file 5
+void get_in() {//file 3
+    for (int i = st; i <= Ed; i++) {
+        string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
+        const char* filenameIn = _filenameIn.data();//string转化成char *;
+        freopen(filenameIn, "w", stdout);//开启输出模式;
+        int t = 20;
+        cout << t << "\n";
+        while(t--)// 200 of s 
+        {
+            string s;
+            // input size q*m*2
+            // solve() time complexity , upper bound q*m*log N 
+                int n = 0;
+
+                int q = 1;
+                    string asks;// asked string 
+                    string tp;
+                    for (int j = 0; j <= 50 + rand() % 50; j++)
+                    {
+                        tp.push_back('a' + rand() % 20);
+                        
+                    }
+                    asks = tp;
+                    reverse(tp.begin(), tp.end());
+                    asks += tp;
+                   
+                    for (int j = 0; j <= 30+rand()%20; j++)//50
+                    {
+                        s.push_back('a' + rand() % 20);
+                    }
+                    
+                    
+                int askl = 0, askr = 0;
+                askl = s.size() + 1;
+                askr = askl + asks.size() - 1;
+                s.append(asks);
+                for (int j = 0; j <= 30 + rand() % 20; j++)//50
+                {
+                    s.push_back('a' + rand() % 20);
+                }
+                n = s.size();
+                cout << n << " " << q << "\n";
+                cout << s << "\n";
+                while (q--)
+                {
+
+                        cout << '2' << "\n";
+                        int m = 1;
+                        cout << m << "\n";
+                        cout << askl << " " << askr << "\n";
+
+
+
+                }
+
+  
+
+
+        }
+    }
+}
+// file 5 m=1 l=1 r=1e5
+void get_in() {//file 6
     for (int i = st; i <= Ed; i++) {
         string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
         const char* filenameIn = _filenameIn.data();//string转化成char *;
