@@ -108,7 +108,7 @@ ll ask_sqe(int j, int p, int l, int r, int length_now)
 
     int length_l = pre[j][opmid] - pre[j][opl - 1];
 
-    //length_l -= l - sub_l[j][opl];
+
     length_l -= max(0, sub_r[j][opmid] - mid);
     length_l -= max(0, l - sub_l[j][opl]);
 
@@ -154,7 +154,6 @@ ll ask_sqe(int j, int p, int l, int r, int length_now)
 
 
 }
-
 
 
 void solve()
