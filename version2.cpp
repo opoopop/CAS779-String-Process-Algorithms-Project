@@ -11,7 +11,7 @@ struct node
     // left and right range
     // hash value calculated by hash value
 };
-ll h = 10;// base value of hash function from Rabin-Karp
+ll h = 1331;// base value of hash function from Rabin-Karp
 ll H[N]; // H[i] refer to h^i
 
 node t[2][4 * N];
