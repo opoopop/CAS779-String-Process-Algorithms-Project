@@ -298,7 +298,7 @@ ll get(ll mod) {
     }
     return res % mod;
 }
-void solve2()
+void solve_bruteforce()
 {
     int n,q;
     cin >> n >> q;
@@ -348,14 +348,14 @@ void get_ans() {
     cin >> t;
     while (t--)
     {
-        solve();
+        solve_bruteforce();
     }
 
 }
 //随机生成输入文件;
 int st = 1;
 int Ed = 1;
-void get_in() {// file 2
+void get_in2() {// file 2
     for (int i = st; i <= Ed; i++) {
         string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
         const char* filenameIn = _filenameIn.data();//string转化成char *;
@@ -496,7 +496,7 @@ void get_in() {// file 2
         }
     }
 }
-void get_in() {//file 3
+void get_in3() {//file 3
     for (int i = st; i <= Ed; i++) {
         string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
         const char* filenameIn = _filenameIn.data();//string转化成char *;
@@ -557,7 +557,7 @@ void get_in() {//file 3
         }
     }
 }
-void get_in() {// file 4
+void get_in4() {// file 4
     for (int i = st; i <= Ed; i++) {
         string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
         const char* filenameIn = _filenameIn.data();//string转化成char *;
@@ -636,8 +636,48 @@ void get_in() {// file 4
         }
     }
 }
-// file 5 m=1 l=1 r=1e5
-void get_in() {//file 6
+void get_in5() {// file 5 m=1 l=1 r=1e5
+    for (int i = st; i <= Ed; i++) {
+        string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
+        const char* filenameIn = _filenameIn.data();//string转化成char *;
+        freopen(filenameIn, "w", stdout);//开启输出模式;
+        int t = 1;
+        cout << t << "\n";
+        for (int k = 0; k < t; k++)
+        {
+            string s;
+            // input size q*m*2
+            // solve() time complexity , upper bound q*m*log N 
+            int n = 100000;
+            for (int i = 0; i < n; i++)s.push_back('a');
+            int q = 100000;
+            cout << n << " " << q << "\n";
+            cout << s << "\n";
+
+
+            while (q--)
+            {
+
+                cout << '2' << "\n";
+                int m = 1;
+                cout << m << "\n";
+                int l = rand() % 666 + 1;
+                for (int i = 0; i < m; i++)//1000
+                {
+                    cout << 1 << " " << n << "\n";
+
+                }
+
+
+            }
+
+
+
+
+        }
+    }
+}
+void get_in6() {//file 6
     for (int i = st; i <= Ed; i++) {
         string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
         const char* filenameIn = _filenameIn.data();//string转化成char *;
@@ -782,7 +822,7 @@ void get_in7() {
         }
     }
 }
-void get_in17() {
+void get_in9() {
     for (int i = st; i <= Ed; i++) {
         string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
         const char* filenameIn = _filenameIn.data();//string转化成char *;
@@ -842,7 +882,7 @@ void get_in17() {
 }
 
 
-void get_in() { //file 1
+void get_in1() { //file 1
     for (int i = st; i <= Ed; i++) {
         string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
         const char* filenameIn = _filenameIn.data();//string转化成char *;
