@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long int ll;
-const int N = 2e6 + 100;
+const int N = 1e6 + 100;
 const int mod = 1e9 + 7;
 //segent tree
 struct node
@@ -11,7 +11,7 @@ struct node
     // left and right range
     // hash value calculated by hash value
 };
-ll h = 10;// base value of hash function from Rabin-Karp
+ll h = 1331;// base value of hash function from Rabin-Karp
 ll H[N]; // H[i] refer to h^i
 
 node t[2][4 * N];
