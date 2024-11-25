@@ -1,7 +1,7 @@
 # CAS779-String-Process-Algorithms-Project
 panlidrome detection and modifying queries
 
-Dataset describtion:
+## Dataset describtion:
 
 n: length of origional string s;
 m: numbers of segments of subsequences queries
@@ -9,7 +9,7 @@ q: numbers of queries
 operation 1:
 operation 2: 
 
-Test 1 to 4 include different small cases in order to prove the correctness of algorithm.
+### Test 1 to 4 include different small cases in order to prove the correctness of algorithm.
 
 1: 
 multi test cases; n=500; each case with 500 queries; small m(1 to 10); different possibility of update operation; different lengths of segmenst; differents gaps between segments;
@@ -27,7 +27,7 @@ in each of the case, create random characters of palidrome, put it at a random p
 multi test cases; different random n in a certain range; random m; q=1
 in each of the case, create random characters of palidrome. then cut it into different parts and randomly put these parts into string s. ask for these parts. 
 
-Test 5 to 10 include different small cases in order to test the speed of the algorithm.
+### Test 5 to 10 include different small cases in order to test the speed of the algorithm.
 
 5:
 one case; large n=1e5; large q=1e5; m=1; all with queries of operation 2;
