@@ -52,6 +52,25 @@ the subsequence consist of all s[i] if i is odd.
 one case; large n=1e5; q=1000; large random m (around 500); different lengths of segmenst; differents gaps between segments;all with queries of operation 2;
 s='aaaa...'
 
+## Input format:
+
+First line contain a number T means the number of test cases.
+
+In each of the case:
+
+First line contain the length of string n and the number of queries q.
+
+In each of the query:
+
+First a  number op means the choice of operation.
+
+If op  = 1:
+
+Than a number x and a character c. Update the character in position x into character c.
+
+If op=2:
+
+First a number m means the number of segments of this subsequence. Than m lines of two number of L and R means the position of this segment start from L and ends at R.
 
 
 
