@@ -243,11 +243,12 @@ void solve()
             // cut input into blocks ***************************
             vector<vector<int>>block;// index inside every vectory
             int block_num = 2;
+            int block_length=m/block_num;
             ll resultl = 0, resultr = 0;
             vector<int>temp;// temporary store the index
             for (int i = 1; i <= m; i++)
             {
-                if (!(i % block_num == 0))
+                if (!(i % block_length == 0))
                 {
                     temp.push_back(i);
                 }
