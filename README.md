@@ -11,7 +11,7 @@ operation 2:
 
 ### Test 1 to 4 include different small cases in order to prove the correctness of algorithm.
 
-**1: **
+**1:**
 multi test cases; n=500; each case with 500 queries; small m(1 to 10); different possibility of update operation; different lengths of segmenst; differents gaps between segments;
 different forms of string s: all with 'a'; all random characters; with the form of 'ababab...'
 
