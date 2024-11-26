@@ -45,7 +45,7 @@ vector<int>sub_r[2];
 
 ## Tree building
 
-This function is used for build the segment tree. We initialize ***p=1, l=1, r=n***. Each time we cut the the string now into two parts from middle and use p to control the index. The recursion stop when it goes to the leaf of the tree.  In this recursive function we use the hash value of left and right child to calculate the hash value in present node.  ***j*** is used for control if this is the reversed version.
+This function is used for build the segment tree. We initialize **p=1, l=1, r=n**. Each time we cut the the string now into two parts from middle and use **p** to control the index. The recursion stop when it goes to the leaf of the tree.  In this recursive function we use the hash value of left and right child to calculate the hash value in present node.  **j** is used for control if this is the reversed version.
 
 ```c++
 void build(int j, int p, int l, int r)// p refer to index in segment tree
@@ -74,7 +74,7 @@ void build(int j, int p, int l, int r)// p refer to index in segment tree
 
 ## Update of the character
 
-This function is used for update s[**x**] into character **c**. Just like building the tree we update the value recursively until the leaf which is the node of s[**x**], then use the hash value of the child to update it's parent.  ***j*** is used for control if this is the reversed version.
+This function is used for update s[**x**] into another character **c**. Just like building the tree we update the value recursively until the leaf which is the node of s[**x**], then use the hash value of the child to update it's parent.  **j** is used for control if this is the reversed version.
 
 ```C++
 void update(int j, int p, int x, char c)
@@ -106,7 +106,7 @@ void update(int j, int p, int x, char c)
 
 ## Calculate the hash value of a substring
 
-This function the hash value of a substring. We decompose this string into different node on the segment tree. Each time we cut the substring using the middle of node's left and right until the node we recurse is fully covered by the substring. Finally we get the hash value by the value that left and right part returned.  ***j*** is used for control if this is the reversed version.
+This function is to calculate the hash value of a substring. We decompose this string into different nodes on the segment tree. Each time we cut the substring using the middle of node's left and right until the node we recurse is fully covered by the substring. Finally we get the hash value from the value that left and right part returned.  **j** is used for control if this is the reversed version.
 
 ```c++
 ll ask(int j, int p, int l, int r)
@@ -138,7 +138,7 @@ ll ask(int j, int p, int l, int r)
 
 ## Calculate the hash value of a subsequence
 
-This function return the hash value of a subsequence using substring query as a part of it. length_now means the total length of the subsequence in this recursion. We use the middle of node's left and right for cut and use binary search to quickly find the index of the segments of subsequence wihch [l,r] is smaller or equal to the current l, r, mid corresponds to opl, opr,opmid. Then use the prefix array to calculate the next recursion's length_now. Notice that when recursing the left and right subsequence, there exist different conditions and for different conditions some parameters for next recursion also should change. conditions include:
+This function return the hash value of a subsequence using substring query as a part of it. **length_now** means the total length of the subsequence in this recursion. We use the middle of node's left and right for the 'cut' and use binary search to quickly find the index of the segments of subsequence wihch [l,r] is smaller or equal to the current **l**, **r**, **mid** with the result of **opl**, **opr**,**opmid**. Then use the prefix array to calculate the next recursion's **length_now**. Notice that when recursing the left and right subsequence, there exist different conditions and for different conditions some parameters for next **ask_sqe()** also should change. conditions include:
 
 1. If the subsequence now is a substring.
 2. If we 'cut' at an empty part(means this index do not have the character we want) or inside a substring. 
@@ -238,7 +238,7 @@ ll ask_sqe(int j, int p, int l, int r, int length_now)
 When giving a subsequence we need to preprocess it for both origional and reversed version. To facilitate and accelerate the further process we store the [l,r] information and the prefix array of the length of [l,r]. Also we merge two segments if they adjacent to each other. 
 
 ```C++
-			sub = { {-1,-1} };
+	sub = { {-1,-1} };
 			// every [l,r] of the segments
 
 			// origional and reversed version of [l,r]
