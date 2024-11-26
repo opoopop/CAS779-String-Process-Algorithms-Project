@@ -8,7 +8,7 @@ m: numbers of segments of subsequences queries
 q: numbers of queries
 operation 1:
 operation 2: 
-
+https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/datacreate.cpp
 ### Test 1 to 4 include different small cases in order to prove the correctness of algorithm.
 
 **1:**
