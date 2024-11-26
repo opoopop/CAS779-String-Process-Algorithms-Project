@@ -10,7 +10,7 @@ This document explain the common part of different versions of algorithm which i
 
 The meaning of each parameter shows on code comments.
 
-We build two segments tree so some of the parameters include a reversed version which include one more dimension. In the whole code, ***j=0*** refer to the reversed version.
+We build two segments tree so some of the parameters include a reversed version which include one more dimension. In the whole code, **j=0** refer to the reversed version.
 
 ```c++
 const int N = 2e6 + 100;
