@@ -296,6 +296,30 @@ When giving a subsequence we need to preprocess it for both origional and revers
 ```
 
 # Step To Step Version Explanation
+Consider this subsequence consist of **m** substrings. Calculate the hash value of each substring and connect them step to step.
+
+```c++
+ll vl = 0, vr = 0;
+//result of origional and reversed version
+for (int i = 1; i <= m; i++)
+{
+	vl = vl * H[sub_r[1][i] - sub_l[1][i]+1] % mod + ask(1, 1, sub_l[1][i], sub_r[1][i]);
+	vl %= mod;
+}
+for (int i = 1; i <= m; i++)
+{
+	vr = vr * H[sub_r[0][i] - sub_l[0][i]+1] % mod + ask(0, 1, sub_l[0][i], sub_r[0][i]);
+	vr %= mod;
+}
+if (vl==vr)
+{
+	puts("Yes");
+}
+else
+{
+	puts("No");
+}
+```
 # One Step Version Explanation
 In this version  we can use the function directly getting the result. If **m=1** which means this is a substring, go directly to the substring query **ask()** or go to subsequence query **ask_sqe()**. If the hash value of origional and reversed version are the same output `Yes`, otherwise output `No`.  
 
