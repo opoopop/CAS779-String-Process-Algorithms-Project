@@ -106,11 +106,21 @@ ll ask_sqe(int j, int p, int l, int r, int length_now)
     int opr = int(upper_bound(sub_l[j].begin(), sub_l[j].end(), r) - sub_l[j].begin() - 1);
     int opmid = int(upper_bound(sub_l[j].begin(), sub_l[j].end(), mid) - sub_l[j].begin() - 1);
 
-    int length_l = pre[j][opmid] - pre[j][opl - 1];
-
-
-    length_l -= max(0, sub_r[j][opmid] - mid);
-    length_l -= max(0, l - sub_l[j][opl]);
+    int length_l = 0;
+    if (mid >= r)
+    {
+        length_l = length_now;
+    }
+    else if (mid < l)
+    {
+        length_l = 0;
+    }
+    else
+    {
+        length_l = pre[j][opmid] - pre[j][opl - 1];
+        length_l -= max(0, sub_r[j][opmid] - mid);
+        length_l -= max(0, l - sub_l[j][opl]);
+    }
 
     int length_r = length_now - length_l;
 
@@ -118,13 +128,17 @@ ll ask_sqe(int j, int p, int l, int r, int length_now)
     {
 
         if (opl == opmid)res += ask(j, p * 2, l, min(mid, sub_r[j][opmid]));
-        else res += ask_sqe(j, p * 2, l, min(mid, sub_r[j][opmid]), length_l);
+        else res += ask_sqe(j, p * 2, l, min(r, min(mid, sub_r[j][opmid])), length_l);
 
     }
     if (length_r != 0)
     {
-
-        if ((opmid + 1 == opr && mid > sub_r[j][opmid]) || opr == opmid)
+        if (length_r == length_now)
+        {
+            if ((opmid + 1 == opr && mid > sub_r[j][opmid]) || opr == opmid)res = (res * H[length_r] % mod + ask(j, p * 2 + 1, l, r)) % mod;
+            else res = (res * H[length_r] % mod + ask_sqe(j, p * 2 + 1, l, r, length_r)) % mod;
+        }
+        else if ((opmid + 1 == opr && mid > sub_r[j][opmid]) || opr == opmid)
         {
             if (mid + 1 <= sub_r[j][opmid])
             {
@@ -156,7 +170,7 @@ ll ask_sqe(int j, int p, int l, int r, int length_now)
 }
 
 
-void solve()
+void solve_mysolution()
 {
 
     cin >> n;
