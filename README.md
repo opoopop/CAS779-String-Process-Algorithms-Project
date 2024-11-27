@@ -52,9 +52,41 @@ Lm Rm
 
 ### Output Format
 
-Follow the instructions and print the answers `Yes` or `No` to the queries, separated by newlines.
+Follow the problem description and print the answers `Yes` or `No` to the queries, separated by newlines.
 
 ### Sample Input
+```c++
+2
+14 3
+ababaabaaacaba
+2 4
+2 3
+5 6
+9 10
+12 13
+1 6 c
+2 4
+2 3
+5 6
+9 10
+12 13
+9 1
+aefbcfaea
+2 3
+1 3
+6 6 
+8 9
+```
+### Sample OutInput
+```c++
+Yes
+No
+Yes
+```
+In the first case of sample input,we ask for the subseqnence a***ba***b***aa***ba***aa***c***ab***a which is `baaaaaab` so the output is `Yes`. 
+
+Than we update the string into `ababacbaaacaba` and ask for the same subsequence a***ba***b***ac***ba***aa***c***ab***a which is `baacaaab` so the output is `No`.
+
 
 ## Dataset describtion:
 
