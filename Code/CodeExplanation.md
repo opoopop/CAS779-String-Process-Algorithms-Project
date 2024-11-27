@@ -294,3 +294,4 @@ When giving a subsequence we need to preprocess it for both origional and revers
             }
 ```
 
+# Step To Step Version Explanation
