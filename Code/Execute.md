@@ -3,7 +3,7 @@ The runtime environment requires a version greater than `C++11`.
 
 Use C++ header file `#include <bits/stdc++.h>`
 
-Whole header files in it:
+The whole header files in it:
 
 ```c++
 // C++
@@ -70,4 +70,6 @@ Because it's code from scratch so just this two header files need to be included
 #include <vector>
 ```
 
-When execute the code strictly follow the Input Format in
+When execute the code strictly follow the Input Format in: 
+https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/README.md
+You will get the correspond result.
