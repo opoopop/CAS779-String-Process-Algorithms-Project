@@ -880,7 +880,59 @@ void get_in9() {
         }
     }
 }
+void get_in10() {
+    for (int i = st; i <= Ed; i++) {
+        string _filenameIn = title + to_string(i) + ".in";//拼接输入文件名;
+        const char* filenameIn = _filenameIn.data();//string转化成char *;
+        freopen(filenameIn, "w", stdout);//开启输出模式;
+        int t = 1;
+        cout << t << "\n";
+        while(t--)// 200 of s 
+        {
+                string s;
 
+                int n = 100000;
+                for (int j = 1; j <= n; j++)s.push_back('a');
+ 
+
+
+                int q = 2000;
+
+
+                cout << n << " " << q << "\n";
+                cout << s << "\n";
+                while (q--)
+                {
+
+                        cout << '2' << "\n";
+                        vector<pair<int,int>>ask;
+                        int m = 100;
+                        cout << m << "\n";
+                        int l = 1;
+
+                        for (int j = 1; j <= m;j++)
+                        {
+                            int r;
+                            
+                            r = l + (j%2)*400 + rand() % 100;
+
+                            cout << l << " " << r << "\n";
+                            
+                            l = r + 1 + (j % 2) * 400 + rand() % 10;
+
+                        }
+
+
+
+
+                }
+
+  
+
+
+        }
+    }
+}
 
 void get_in1() { //file 1
     for (int i = st; i <= Ed; i++) {
