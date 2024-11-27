@@ -1,8 +1,20 @@
+## Table of Contents
+
+- [Common Part Explanation](#common-part-explanation)
+  - [Parameter settings](#parameter-settings)
+  - [Tree building](#tree-building)
+  - [Update of the character](#update-of-the-character)
+  - [Calculate the hash value of a substring](#calculate-the-hash-value-of-a-substring)
+  - [Calculate the hash value of a subsequence](#calculate-the-hash-value-of-a-subsequence)
+  - [Preprocess inside a query](#preprocess-inside-a-query)
+- [第二节内容](#dataset-describtion)
+- [第三节内容](#section3)
+
 # Common Part Explanation
 
 
 
-This document explain the common part of different versions of algorithm which is the part related to search on the segment tree using hash function and other algorithms.
+This part explain the common part of different versions of algorithm which is the part related to search on the segment tree using hash function and other algorithms.
 
 
 
@@ -233,7 +245,7 @@ ll ask_sqe(int j, int p, int l, int r, int length_now)
 
 
 
-## Preprocess when giving a subsequence
+## Preprocess inside a query
 
 When giving a subsequence we need to preprocess it for both origional and reversed version. To facilitate and accelerate the further process we store the [l,r] information and the prefix array of the length of [l,r]. Also we merge two segments if they adjacent to each other. 
 
