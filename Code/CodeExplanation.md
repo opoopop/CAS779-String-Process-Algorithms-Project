@@ -334,3 +334,87 @@ else
 }
 ```
 # Block Version Explanation
+In block version we divide m substring of this subsequence into **block_num**(a preset parameter, in this code is 100) of different blocks. Then calculate the final hash value going through these blocks' value.
+
+```c++
+// cut input into blocks ***************************
+vector<vector<int>>block;// index inside every vectory
+int block_num = min(100,m);// number of blocks
+int block_length=m/block_num;//length of each block
+ll resultl = 0, resultr = 0;// result of origional and reversed version hash value
+vector<int>temp;// temporary store the index
+for (int i = 1; i <= m; i++)// divide m substrings into blocks
+{
+    if (!(i % block_length == 0))
+    {
+        temp.push_back(i);
+    }
+    else
+    {
+       if(temp.size()) block.push_back(temp);
+        temp.clear();
+        temp.push_back(i);
+
+    }
+}
+if(temp.size())block.push_back(temp);
+
+
+
+for (auto B : block)
+{// calculate the hash value going through different blocks
+
+    ll length_now = pre[1][B.back()] - pre[1][B[0] - 1];
+    resultl = resultl * H[length_now] % mod;
+    if (B.size() == 1)
+    {
+        resultl += ask(1, 1, sub[B[0]].first, sub[B.back()].second);
+    }
+    else
+    {
+        resultl += ask_sqe(1, 1, sub[B[0]].first, sub[B.back()].second, length_now);
+    }
+    resultl %= mod;
+
+}
+// reversed version
+vector<vector<int>>block_r;
+temp.clear();
+int cp_idx = int(block.size()) - 1;
+for (int i = 1; i <= m; i++)// use the size of origional version to get the reversed version's blocks
+{
+    temp.push_back(i);
+    if (temp.size() == block[cp_idx].size())
+    {
+        block_r.push_back(temp);
+        temp.clear();
+        cp_idx--;
+    }
+}
+
+
+for (auto B : block_r)
+{// reversed version hash value
+    ll length_now = pre[0][B.back()] - pre[0][B[0] - 1];
+    resultr = resultr * H[length_now] % mod;
+    if (B.size() == 1)
+    {
+        resultr += ask(0, 1, sub_l[0][B[0]], sub_r[0][B.back()]);
+    }
+    else
+    {
+        resultr += ask_sqe(0, 1, sub_l[0][B[0]], sub_r[0][B.back()], length_now);
+    }
+    resultr %= mod;
+
+}
+
+if (resultl == resultr)
+{
+    puts("Yes");
+}
+else
+{
+    puts("No");
+}
+```
