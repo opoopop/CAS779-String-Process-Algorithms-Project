@@ -7,8 +7,9 @@
   - [Calculate the hash value of a substring](#calculate-the-hash-value-of-a-substring)
   - [Calculate the hash value of a subsequence](#calculate-the-hash-value-of-a-subsequence)
   - [Preprocess inside a query](#preprocess-inside-a-query)
-- [第二节内容](#dataset-describtion)
-- [第三节内容](#section3)
+- [Step To Step Version Explanation](#step-to-step-version-explanation)
+- [One Step Version Explanation](#one-step-version-explanation)
+- [Block Version Explanation](#block-version-explanation)
 
 # Common Part Explanation
 
@@ -295,3 +296,17 @@ When giving a subsequence we need to preprocess it for both origional and revers
 ```
 
 # Step To Step Version Explanation
+# One Step Version Explanation
+In this version  we can use the function directly getting the result. If **m=1** which means this is a substring, go directly to the substring query **ask()** or go to subsequence query **ask_sqe()**. If the hash value of origional and reversed version are the same output `Yes`, otherwise output `No`.  
+
+```c++
+if ((m == 1 && ask(1, 1, sub_l[1][1], sub_r[1][m]) == ask(0, 1, sub_l[0][1], sub_r[0][m])) || (m != 1 && ask_sqe(1, 1, sub_l[1][1], sub_r[1][m], pre[1][m]) == ask_sqe(0, 1, sub_l[0][1], sub_r[0][m], pre[0][m])))
+{
+	puts("Yes");
+}
+else
+{
+	puts("No");
+}
+```
+# Block Version Explanation
