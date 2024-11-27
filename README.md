@@ -1,13 +1,60 @@
 ## 目录
 
-- [op](#cas779-string-process-algorithms-project)
+- [Problem Setting](#problem-setting)
   - [op1](#dataset-describtion)
 - [第二节内容](#dataset-describtion)
 - [第三节内容](#section3)
 
 
-# CAS779-String-Process-Algorithms-Project
-panlidrome detection and modifying queries
+# CAS779 String Process Algorithms Project - Online String Subsequence Palindrome Detection
+
+
+## Problem Setting
+
+Give a string ***S*** of length ***N*** consisting of lowercase English letters.
+
+Process ***Q*** queries(Here Q is using for facilitate testing) described below in the order they are given.
+
+There are two types of queries:
+
+- `1 x c` Change the *x*-th character of *S* to the lowercase English letter *c*.
+- `2 m [L1,R1], [L2,R2]...[Lm,Rm]` If the subsequence which consist of M segments of S is a palindrome, print `Yes`; otherwise, print `No`.
+
+### Input Format
+Firstly input a number `T` refer to the number of test cases.
+
+Than for each of the test case. Here, query<sub>i</sub> is the *i*-th query to be processed.
+
+```c++
+N Q
+S
+query[1]
+query[2]
+query[3]
+    .
+    .
+    .
+query[Q]
+```
+Each query is given in one of the following formats:
+```c++
+1 x c
+```
+```c++
+2 m
+L1 R1
+L2 R2
+  .
+  .
+  .
+Lm Rm
+```
+
+### Output Format
+
+Follow the instructions and print the answers `Yes` or `No` to the queries, separated by newlines.
+
+### Sample Input
 
 ## Dataset describtion:
 
