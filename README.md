@@ -96,9 +96,17 @@ In the first case of sample input,we ask for the subseqnence a***ba***b***aa***b
 Than we update the string into `ababacbaaacaba` and ask for the same subsequence a***ba***b***ac***ba***aa***c***ab***a which is `baacaaab` so the output is `No`.
 
 
-![image]()
+
 ## Algorithm
 ### Abstract
+![image](https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/process.png)
+
+The algorithm explanation part go through different stages shows as picture above.
+
+Firstly, we use [segment tree](https://en.wikipedia.org/wiki/Segment_tree)(static range tree) combine with the [hash function](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm). Additional, the process of update the string will be introduced int this part because this preocess are the same among different versions of the algorithm. The preprocess of segment tree take *O(nlogn)* of time complexity and *O(nlogn)* of space complexity. The process of update the string in each query take *O(logn)* of time complexity.
+
+Then we introduce the substring query which will be used as a part of subsequence query. Answer this query take *O(logn)* of time complexity.
+
 ### Preprocess Part
 ### Substring Query
 ### Step to Step Version
