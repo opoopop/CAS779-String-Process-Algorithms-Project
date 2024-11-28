@@ -128,9 +128,13 @@ So we use a recursive way get the hash value from the bottom to the top. Calcula
 ### Substring Query and String Update 
 If give a substring we can get it's hash value through the segment tree. 
 
-<img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/segmenttree3.png" width="850" height="400" alt="Abstract">
+<img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/segmenttree3.png" width="800" height="300" alt="Abstract">
 
 In this example if we want to calculate the hash value of string `abcbacba` it's divide into three nodes on the tree `abcb` `ac` `b`. Than we use a similar recursive way to get the result from the bottom to the top. There is a important porperty of segment tree is that a substring can be at most divided into *O(logn)* parts. So the time complexity of get a substring's hash value is *O(logn)*. As we get the hash value of this substring we calculate this string in the reversed segment tree, if they are the same than we judge it as a palindrome. 
+
+If we want to update a character in the string we just need to change *O(logn)* of nodes on the tree beacuse a path from the bottom to the top is a simple path on the tree with it's length *O(logn)*. We can update the hash value by simply calculate it again by it's left and right children which take *O(1)*. For example if we want to change `b` these are the noodes we need to change throught the segment tree.
+
+<img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/segmenttree4.png" width="800" height="300" alt="Abstract">
 
 ### Step to Step Version
 ### One Step Version
