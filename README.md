@@ -13,7 +13,7 @@
 - [Possible Improvement](#possible-improvement)
 - [Details of Implementation](#details-of-implementation)
 - [Execute The Code](#execute-the-code)
-- [Additional Part](#additional-part)
+- [Challenges Encountered](#challenges-encountered)
 
 
 # CAS779 String Process Algorithms Project - Online String Subsequence Palindrome Detection
@@ -240,7 +240,7 @@ https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Da
 Detailed explanation of algorithm:
 
 https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Code/CodeExplanation.md
-## Additional Part
+## Challenges Encountered
 
 
 
