@@ -225,7 +225,9 @@ In 8.in m is large which equal to 5e4. We select 8.in to show that the choice of
 
 As we can see from the result when block_num=250 this algorithm shows much better perforamnce. 
 ## possible improvement
+Here I am going to introduce two ways of possible improvement. Base on my analysis of the result the block_num in Block version should be the parameter we focus on. I use sqrt(m) as the value in my code but that is not the best choice. As what the result analysis shows there exist a point or some points which cost minimum time consumption. How to find the best number of blocks should be a possible improvement.
 
+The second way is that we use another way to divide the block. In my solution we only focus on divide m substrings it into blocks with equal length. What if we focus on the lengths of those substrings in stead of the number of them. I tried to design a new rule to make the block but the performance of algorithm is not good. However, focus on this seems more reasonable, or we can find another ways which focus on different property. 
 
 ## Execute The Code
 Execute the code of algorithms with three versions:
