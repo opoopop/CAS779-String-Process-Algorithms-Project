@@ -124,7 +124,7 @@ Here is a example of how calculate the hash value of $V_{abcb}$.
 
 $V_{ab} =V_{a} \times 10^{1} + V_{b}=12$ and $V_{cb} =V_{c} \times 10^{1} + V_{b}=13$ . Then $V_{abcb}=V_{ab} \times 10^{2} + V_{cb}=1232$
 
-So we use a recursive way get the hash value from the bottom to the top.
+So we use a recursive way get the hash value from the bottom to the top. Calculate the hash value take *O(1)* time and the depth of this tree is *O(logn)*, there are *n* of leaves(single character node). So the time complexity of this preocess is *O(nlogn)*.
 ### Substring Query and String Update 
 
 
