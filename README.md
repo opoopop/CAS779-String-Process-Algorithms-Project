@@ -4,7 +4,7 @@
 - [Algorithm](#algorithm)
   - [Abstract](#abstract)
   - [Preprocess Part](#preprocess-part)
-  - [Substring Query](#substring-query)
+  - [Substring Query&Update](#substring-query&update)
   - [Step to Step Version](#step-to-step-version)
   - [One Step Version](#one-step-version)
   - [Block Version](#block-version)
@@ -12,6 +12,7 @@
 - [Possible Improvement](#possible-improvement)
 - [Test Dataset](#test-dataset)
 - [Execute The Code](#execute-the-code)
+- [Additional Part](#additional-part)
 
 
 # CAS779 String Process Algorithms Project - Online String Subsequence Palindrome Detection
@@ -103,13 +104,12 @@ Than we update the string into `ababacbaaacaba` and ask for the same subsequence
 
 The algorithm explanation part go through different stages shows as the picture above.
 
-Firstly, we use [segment tree](https://en.wikipedia.org/wiki/Segment_tree)(static range tree) combine with the [hash function](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm). Additional, the process of update the string will be introduced in this part because this preocess are the same among different versions of the algorithm. The preprocess of segment tree take *O(nlogn)* of time complexity and *O(nlogn)* of space complexity. The process of update the string in each query take *O(logn)* of time complexity.
+Firstly, we use [segment tree](https://en.wikipedia.org/wiki/Segment_tree)(static range tree) combine with the [hash function](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm). The preprocess of segment tree take *O(nlogn)* of time complexity and *O(nlogn)* of space complexity. The process of update the string in each query take *O(logn)* of time complexity.
 
-Then we introduce the substring query which will be used as a part of subsequence query. Answer this query take *O(logn)* of time complexity.
-Then the **Step to Step version** take *O(mlogn)* of time complexity for each subsequence query. The complexity of **One step version** is not fixed but according to the test it's smaller or equal to **Step to Step version**. Finally we introduce the **Block version** which can consider as a variant of **Step to Step version** and **One step version**. The time complexity of this version has a upperbound of *O(mlogn)* and a lowerbound of *O(logmlogn)*.
+Then we introduce the substring query which will be used as a part of subsequence query. Answer this query take *O(logn)* of time complexity. Addditional we introduce the *O(logn)* update process in this part. Then the **Step to Step version** take *O(mlogn)* of time complexity for each subsequence query. The complexity of **One step version** is not fixed but according to the test it's smaller or equal to **Step to Step version**. Finally we introduce the **Block version** which can consider as a variant of **Step to Step version** and **One step version**. The time complexity of this version has a upperbound of *O(mlogn)* and a lowerbound of *O(logmlogn)*.
 
 ### Preprocess Part
-### Substring Query
+### Substring Query&Update 
 ### Step to Step Version
 ### One Step Version
 ### Block Version
@@ -119,6 +119,7 @@ Then the **Step to Step version** take *O(mlogn)* of time complexity for each su
 
 ## Test Dataset
 ## Execute The Code
+## Additional Part
 
 
 
