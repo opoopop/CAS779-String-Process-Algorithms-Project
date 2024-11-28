@@ -41,7 +41,7 @@ one case; large n=1e5; large q=1e5; m between 1 to 3; different lengths of segme
 s='aaaa...'
 
 **8:**
-one case; large n=1e5; small q=10; large m between with value (n+1)/2; all with queries of operation 2;
+one case; large n=1e5; small q=10; large m with value (n+1)/2; all with queries of operation 2;
 s='aaaa...'
 the subsequence consist of all s[i] if i is odd.
 
