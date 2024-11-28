@@ -110,10 +110,21 @@ Then we introduce the substring query which will be used as a part of subsequenc
 
 ### Preprocess Part
 In this part we introduce how to construct this segment tree combined with hash function
+<img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/segmenttree1.png" width="850" height="400" alt="Abstract">
+
+We construct the tree like the picture above. We continue to divide the string into two part from middle until there is a single character. In every node of the tree we don't store the string we just store a **[L,R]** refer to the index in origional string and a harsh value **v**. The depth of this tree is *O(logn)* and levels have 1,2,4,8...n of nodes, so it take *O(nlogn)* of space complexity. Here the basic value of hash function **h=10** and **'a'=1;'b'=2;'c=3'**, so how to get the hash value **v** of a certain node x, it can use the following function. Here **x.L** and **x.R** refer to the left and right children of node **x**, **len()** means the length of the string that node represent.
 
 $$
 V_x = V_{x.L} \times h^{len(x.R)} + V_{x.R}
 $$
+
+Here is a example of how calculate the hash value of $V_{abcb}$.
+
+<img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/segmenttree2.png" width="850" height="400" alt="Abstract">
+
+$V_{ab} =V_{a} \times 10^{1} + V_{b}=12$ and $V_{cb} =V_{c} \times 10^{1} + V_{b}=13$ . Then $V_{abcb}=V_{ab} \times 10^{2} + V_{cb}=1232$
+
+So we use a recursive way get the hash value from the bottom to the top.
 ### Substring Query and String Update 
 
 
