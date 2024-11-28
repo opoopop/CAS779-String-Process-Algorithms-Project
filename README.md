@@ -160,6 +160,37 @@ Now we go to block version. both One Step Version and Step to Step version can b
 So now what we actually do is a trade-off. If the number of blocks is small than the length of each block is large which means we merge more paths but if we merge more path we spend more *O(logm)* instead of *O(1)*. As what we are going to show in the result analysis the choice of the number of the blocks will influence the time complexity. There is one thing we can make sure is that if the number of block is 1 than it's a Step to Step version so the time comlpexity of Block version is *O(mlogn)*. In the best condition it may be even lower than *O(logmlogn)* when m=1(One Step Version).
 
 ### Additional Part
+For all the examples above I use 10 as a basic value in hash function and do not take modulo operation. But in the code all the calculation take modulo operation because the result could be out of data storage range. In order to reduce hash collision we use 1331 as basic value and 1e9+7 as the modulo value. This value has already largely deduce the possiblility of hash collusion and we can do more to reduce this possibility. The following operation is not included on the code and can be add into if needed.
+Instead of use a hash value we can use a pair of number as the hash value with two different basic and modulo value. h1=1331, h2=13331, mod1=1e9+7, mod2=998244353 is a good choice. We can use more value as the hash value, the more we use the possibility of hash collision reduced but it use more time to calculate. I use **long long int** in my code we can use a larger data storage range which is int128. Here is an example of int128.
+
+```c++
+inline __int128 read(){
+    __int128 x = 0, f = 1;
+    char ch = getchar();
+    while(ch < '0' || ch > '9'){
+        if(ch == '-')
+            f = -1;
+        ch = getchar();
+    }
+    while(ch >= '0' && ch <= '9'){
+        x = x * 10 + ch - '0';
+        ch = getchar();
+    }
+    return x * f;
+}
+inline void print(__int128 x){
+    if(x < 0){
+        putchar('-');
+        x = -x;
+    }
+    if(x > 9)
+        print(x / 10);
+    putchar(x % 10 + '0');
+}
+__int128 n;
+n=read();
+```
+
 ## Result Analysis
 In order to test the result I generate 10 different dateset with standard input and output format at:
 https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/tree/main/Data/data
