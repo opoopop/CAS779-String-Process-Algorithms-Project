@@ -124,9 +124,13 @@ Here is a example of how calculate the hash value of $V_{abcb}$.
 
 $V_{ab} =V_{a} \times 10^{1} + V_{b}=12$ and $V_{cb} =V_{c} \times 10^{1} + V_{b}=13$ . Then $V_{abcb}=V_{ab} \times 10^{2} + V_{cb}=1232$
 
-So we use a recursive way get the hash value from the bottom to the top. Calculate the hash value take *O(1)* time and the depth of this tree is *O(logn)*, there are *n* of leaves(single character node). So the time complexity of this preocess is *O(nlogn)*.
+So we use a recursive way get the hash value from the bottom to the top. Calculate the hash value take *O(1)* time and the depth of this tree is *O(logn)*, there are *n* of leaves(single character node). So the time complexity of this preocess is *O(nlogn)*. Additionally, we build one more tree for the reversed version, here revere means we reverse the whole string, For example if the origional string is `abcd` we build a segment tree for `dcba`.
 ### Substring Query and String Update 
+If give a substring we can get it's hash value through the segment tree. 
 
+<img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/segmenttree3.png" width="850" height="400" alt="Abstract">
+
+In this example if we want to calculate the hash value of string `abcbacba` it's divide into three nodes on the tree `abcb` `ac` `b`. Than we use a similar recursive way to get the result from the bottom to the top. There is a important porperty of segment tree is that a substring can be at most divided into *O(logn)* parts. So the time complexity of get a substring's hash value is *O(logn)*. As we get the hash value of this substring we calculate this string in the reversed segment tree, if they are the same than we judge it as a palindrome. 
 
 ### Step to Step Version
 ### One Step Version
