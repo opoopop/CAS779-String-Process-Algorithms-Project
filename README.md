@@ -4,7 +4,7 @@
 - [Algorithm](#algorithm)
   - [Abstract](#abstract)
   - [Preprocess Part](#preprocess-part)
-  - [Substring Query&Update](#substring-query&update)
+  - [Substring Query and String Update](#substring-query-and-string-update)
   - [Step to Step Version](#step-to-step-version)
   - [One Step Version](#one-step-version)
   - [Block Version](#block-version)
@@ -106,10 +106,10 @@ The algorithm explanation part go through different stages shows as the picture 
 
 Firstly, we use [segment tree](https://en.wikipedia.org/wiki/Segment_tree)(static range tree) combine with the [hash function](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm). The preprocess of segment tree take *O(nlogn)* of time complexity and *O(nlogn)* of space complexity. The process of update the string in each query take *O(logn)* of time complexity.
 
-Then we introduce the substring query which will be used as a part of subsequence query. Answer this query take *O(logn)* of time complexity. Addditional we introduce the *O(logn)* update process in this part. Then the **Step to Step version** take *O(mlogn)* of time complexity for each subsequence query. The complexity of **One step version** is not fixed but according to the test it's smaller or equal to **Step to Step version**. Finally we introduce the **Block version** which can consider as a variant of **Step to Step version** and **One step version**. The time complexity of this version has a upperbound of *O(mlogn)* and a lowerbound of *O(logmlogn)*.
+Then we introduce the substring query which will be used as a part of subsequence query. Answer this query take *O(logn)* of time complexity. Addditional, we introduce the *O(logn)* update process in this part. Then for the **Step to Step version** it takse *O(mlogn)* of time complexity for each subsequence query. The complexity of **One step version** is not fixed but according to the test it's smaller or equal to **Step to Step version**. Finally we introduce the **Block version** which can consider as a variant of **Step to Step version** and **One step version**. The time complexity of this version has a upperbound of *O(mlogn)* and a lowerbound of *O(logmlogn)*.
 
 ### Preprocess Part
-### Substring Query&Update 
+### Substring Query and String Update 
 ### Step to Step Version
 ### One Step Version
 ### Block Version
