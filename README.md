@@ -137,7 +137,20 @@ If we want to update a character in the string we just need to change *O(logn)* 
 <img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/segmenttree4.png" width="800" height="300" alt="Abstract">
 
 ### Step to Step Version
+Step to step version means we consider the subsequence as m separate substrings. If we have two string **x**,**y** and their hash value, we combine them together using the following equation, here **len()** means the length of the string.
+
+$$
+V_{xy} = V_x \times h^{len(y)} + V_y
+$$
+
+We combine the first two substrings together and use the string now combine with the thid one...until the last substring. The reversed version is also the same. Finally we compare this two hash values.
 ### One Step Version
+One step version means unlike step to step version we get the hash value on the segment tree in one step. The main concept is that we use the whole subsequence to go throuth the tree. The advantage of this method is that compare with step to step version we go through one eage at most one time but when go through the eage we need a exta cost. For example. If we use step to step version we go through the edge between `abcb` and `abcbacba` twice but now we just go through it for one time.
+
+<img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/segmenttree5.png" width="800" height="300" alt="Abstract">
+
+But why do we need extra cost? Because when calculate the hash value one information we need is the length of a string. We are using the leftmost **L** and rightmost **R** of the subsequence as the parameter to go through the tree. However in the subsequence there exist some 'empty' part(the part which is included in **L** and **R** but do not included in this subsequence)so we can not simply get the length we want. In order to give the length I use a prefix array which is **m** prefix value for the lengthes of substrings. For example if the susequence is [1,3], [6,7],[13,20] than the prefix array is [3,5,13]. We can use the binary search to get the part we are searching now by **L** and **R** taking *O(logm)* and use prefix array to get the length we want in *O(1)*. Also in this step we refine the **L** and **R** after go to the left and right children. Before we go through a eage and take *O(1)* to calculate the hash value. But now it cost *O(logm)*. For the detail of how to use binary search to get the part we want and how to get the length in *O(1)* please read CodeExplanation.md.
+
 ### Block Version
 
 ## Result Analysis
