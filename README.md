@@ -1,9 +1,17 @@
 # Table of Contents
 
 - [Problem Setting](#problem-setting)
-  - [op1](#dataset-describtion)
-- [第二节内容](#dataset-describtion)
-- [第三节内容](#section3)
+- [Algorithm](#algorithm)
+  - [Abstract](#abstract)
+  - [Preprocess Part](#preprocess-part)
+  - [Substring Query](#substring-query)
+  - [Step to Step Version](#step-to-step-version)
+  - [One Step Version](#one-step-version)
+  - [Block Version](#block-version)
+- [Result Analysis](#result-analysis)
+- [Possible Improvement](#possible-improvement)
+- [Test Dataset](#test-dataset)
+- [Execute The Code](#execute-the-code)
 
 
 # CAS779 String Process Algorithms Project - Online String Subsequence Palindrome Detection
@@ -88,10 +96,20 @@ In the first case of sample input,we ask for the subseqnence a***ba***b***aa***b
 Than we update the string into `ababacbaaacaba` and ask for the same subsequence a***ba***b***ac***ba***aa***c***ab***a which is `baacaaab` so the output is `No`.
 
 
+![image]()
+## Algorithm
+### Abstract
+### Preprocess Part
+### Substring Query
+### Step to Step Version
+### One Step Version
+### Block Version
 
+## Result Analysis
+## possible improvement
 
-
-# asda
+## Test Dataset
+## Execute The Code
 
 
 
