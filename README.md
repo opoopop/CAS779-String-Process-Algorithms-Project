@@ -166,9 +166,9 @@ First 4 datasets have small in order to prove the correctness of the algorithm a
 
 | Version                                | 5.in  | 6.in  | 7.in  | 8.in  | 9.in  | 10.in |
 |----------------------------------------|-------|-------|-------|-------|-------|-------|
-| Step to Step version                   | 4 ms  | 2540 ms | 2696 ms | 1044 ms | 1132 ms | 656 ms |
-| One Step version                       | 4 ms  | 1836 ms | 2412 ms | 972 ms  | 920 ms  | 620 ms |
-| Block version (block_num=sqrt(m))      | 4 ms  | 2522 ms | 2680 ms | 756 ms  | 760 ms  | 652 ms |
+| Step to Step version                   | 4 ms  | 2540 ms | 2696 ms | 1444 ms | 1132 ms | 656 ms |
+| One Step version                       | 4 ms  | 1836 ms | 2412 ms | 1136 ms  | 920 ms  | 620 ms |
+| Block version (block_num=sqrt(m))      | 4 ms  | 2522 ms | 2680 ms | 852 ms  | 760 ms  | 652 ms |
 
 This is the test result of last 6 datasets in 5.in becasue of this is a substring query so three versions show no difference. In 6.in and 7.in the Block version is almost the same as step to step verison because we select block_num=sqrt(m) and m is small, But One step version shows a improvement of speed. In 8.in and 9.in the m is bigger and the blovk version show better improvemnt but in 10.in when m=100 they have similar performance.
 
