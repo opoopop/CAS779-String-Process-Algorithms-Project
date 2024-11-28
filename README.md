@@ -173,6 +173,9 @@ First 4 datasets have small in order to prove the correctness of the algorithm a
 This is the test result of last 6 datasets in 5.in becasue of this is a substring query so three versions show no difference. In 6.in and 7.in the Block version is almost the same as step to step verison because we select block_num=sqrt(m) and m is small, But One step version shows a improvement of speed. In 8.in and 9.in the m is bigger and the blovk version show better improvemnt but in 10.in when m=100 they have similar performance.
 
 In 8.in m is large which equal to 5e4. We select 8.in to show that the choice of block_num will influence the peformance of algorithm. 
+
+<img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/blockanalysist.png" width="540" height="350" alt="Abstract">
+
 | Block Number | Time Consumption (ms) |
 |--------------|-----------------------|
 | 50000        | 1444                  |
@@ -185,6 +188,7 @@ In 8.in m is large which equal to 5e4. We select 8.in to show that the choice of
 | 100          | 1040                  |
 | 1            | 1136                  |
 
+As we can see from the result when block_num=250 this algorithm shows much better perforamnce. 
 ## possible improvement
 
 
