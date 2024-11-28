@@ -109,7 +109,14 @@ Firstly, we use [segment tree](https://en.wikipedia.org/wiki/Segment_tree)(stati
 Then we introduce the substring query which will be used as a part of subsequence query. Answer this query take *O(logn)* of time complexity. Addditional, we introduce the *O(logn)* update process in this part. Then for the **Step to Step version** it takse *O(mlogn)* of time complexity for each subsequence query. The complexity of **One step version** is not fixed but according to the test it's smaller or equal to **Step to Step version**. Finally we introduce the **Block version** which can consider as a variant of **Step to Step version** and **One step version**. The time complexity of this version has a upperbound of *O(mlogn)* and a lowerbound of *O(logmlogn)*.
 
 ### Preprocess Part
+In this part we introduce how to construct this segment tree combined with hash function
+
+$$
+V_x = V_{x.L} \times h^{len(x.R)} + V_{x.R}
+$$
 ### Substring Query and String Update 
+
+
 ### Step to Step Version
 ### One Step Version
 ### Block Version
