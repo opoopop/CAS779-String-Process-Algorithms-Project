@@ -156,3 +156,14 @@ void get_ans() {
 
 }
 ```
+If you want to run the data I create on https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/tree/main/Data/data just comment out the **get_in()** line of code and remember use a new name of file to store the result in case of it cover my .out file. Finally compare your result with my result.
+```C++
+int main() {
+
+    init();
+    //get_in();
+    get_out();
+
+    return 0;
+}
+```
