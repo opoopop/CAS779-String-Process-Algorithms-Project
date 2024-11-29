@@ -1129,7 +1129,7 @@ int main() {
     */
 
     init();
-   get_in();
+   get_in1();
     get_out();
     //cout << "down";
     return 0;
