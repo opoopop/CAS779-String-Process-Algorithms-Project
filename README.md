@@ -242,7 +242,7 @@ Execute the code of create dataset:
 https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Data/Execute.md
 
 ## Details of Implementation
-Detailed explanation of algorithm:
+Detailed explanation of the algorithm:
 
 https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Code/CodeExplanation.md
 ## Challenges Encountered
