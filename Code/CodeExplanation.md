@@ -15,7 +15,7 @@
 
 
 
-This part explain the common part of different versions of algorithm which is the part related to search on the segment tree using hash function and other algorithms.
+This part explain the common part of different versions of algorithms which is the part related to search on the segment tree using hash function and other algorithms.
 
 
 
@@ -58,7 +58,7 @@ vector<int>sub_r[2];
 
 ## Tree building
 
-This function is used for build the segment tree. We initialize **p=1, l=1, r=n**. Each time we cut the the string now into two parts from middle and use **p** to control the index. The recursion stop when it goes to the leaf of the tree.  In this recursive function we use the hash value of left and right child to calculate the hash value in present node.  **j** is used for control if this is the reversed version.
+This function is used for build the segment tree. We initialize **p=1, l=1, r=n**. Each time we cut the the string now into two parts from middle and use **p** to control the index. The recursion stop when it goes to the leaf of the tree.  In this recursive function we use the hash value of left and right child to calculate the hash value in the present node.  **j** is used for control if this is the reversed version.
 
 ```c++
 void build(int j, int p, int l, int r)// p refer to index in segment tree
@@ -119,7 +119,7 @@ void update(int j, int p, int x, char c)
 
 ## Calculate the hash value of a substring
 
-This function is to calculate the hash value of a substring. We decompose this string into different nodes on the segment tree. Each time we cut the substring using the middle of node's left and right until the node we recurse is fully covered by the substring. Finally we get the hash value from the value that left and right part returned.  **j** is used for control if this is the reversed version.
+This function is to calculate the hash value of a substring. We decompose this string into different nodes on the segment tree. Each time we divide the substring using the middle of node's left and right parameter until the node we recurse is fully covered by the substring. Finally we get the hash value from the value that left and right part returned.  **j** is used for control if this is the reversed version.
 
 ```c++
 ll ask(int j, int p, int l, int r)
@@ -154,7 +154,8 @@ ll ask(int j, int p, int l, int r)
 This function return the hash value of a subsequence using substring query as a part of it. **length_now** means the total length of the subsequence in this recursion. We use the middle of node's left and right for the 'cut' and use binary search to quickly find the index of the segments of subsequence wihch [l,r] is smaller or equal to the current **l**, **r**, **mid** with the result of **opl**, **opr**,**opmid**. Then use the prefix array to calculate the next recursion's **length_now**. Notice that when recursing the left and right subsequence, there exist different conditions and for different conditions some parameters for next **ask_sqe()** also should change. conditions include:
 
 1. If the subsequence now is a substring.
-2. If we 'cut' at an empty part(means this index do not have the character we want) or inside a substring. 
+2. If we 'cut' at an empty part(means this index do not have the character we want) or inside a substring.
+3. There have different relative position relationship between the position we 'cut' and the subsequence.
 
 ```C++
 ll ask_sqe(int j, int p, int l, int r, int length_now)
@@ -321,7 +322,7 @@ else
 }
 ```
 # One Step Version Explanation
-In this version  we can use the function directly getting the result. If **m=1** which means this is a substring, go directly to the substring query **ask()** or go to subsequence query **ask_sqe()**. If the hash value of origional and reversed version are the same output `Yes`, otherwise output `No`.  
+In this version  we can use a function directly getting the result. If **m=1** which means this is a substring, go directly to the substring query **ask()** or go to subsequence query **ask_sqe()**. If the hash value of origional and reversed version are the same output `Yes`, otherwise output `No`.  
 
 ```c++
 if ((m == 1 && ask(1, 1, sub_l[1][1], sub_r[1][m]) == ask(0, 1, sub_l[0][1], sub_r[0][m])) || (m != 1 && ask_sqe(1, 1, sub_l[1][1], sub_r[1][m], pre[1][m]) == ask_sqe(0, 1, sub_l[0][1], sub_r[0][m], pre[0][m])))
@@ -334,7 +335,7 @@ else
 }
 ```
 # Block Version Explanation
-In block version we divide m substring of this subsequence into **block_num**(a preset parameter, in this code is 100) of different blocks. Then calculate the final hash value going through these blocks' value.
+In block version we divide m substrings of this subsequence into **block_num**(a preset parameter, in this code is 100) of different blocks. Then calculate the final hash value going through these blocks' value.
 
 ```c++
 // cut input into blocks ***************************
