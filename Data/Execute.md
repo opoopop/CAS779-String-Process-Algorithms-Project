@@ -6,7 +6,7 @@ Firstly your execute environment should follow:
 
 https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Code/Execute.md
 
-Change your own path to store .in and .out document.
+Change your own path to store **.in** and **.out** document.
 
 ```c++
 string title = "D:/xujcdata/5045/";
@@ -19,7 +19,7 @@ int st = 1;
 int Ed = 2;
 ```
 
-There are 10 functions to create different shape of data with their file name between **get_in1()** and **get_in10()** correspond to the code of 10 dataset in **DatasetDescription.md**. This is one of the **get_in** function.
+There are 10 functions to create different forms of datasets with their name from **get_in1()** to **get_in10()** correspond to the code of 10 datasets in **DatasetDescription.md**. This is one of the **get_in** function.
 
 ```c++
 void get_in3() {//file 3
@@ -156,7 +156,7 @@ void get_ans() {
 
 }
 ```
-If you want to run the data I create on https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/tree/main/Data/data just comment out the **get_in()** line of code and remember use a new name of file to store the result in case of it cover my .out file. Finally compare your result with my result.
+If you want to run the data I create on https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/tree/main/Data/data just comment out the **get_in()** line and remember to use a new name of file to store the result in case of it cover my **.out** file. Finally compare your result with my result through **.out** document.
 ```C++
 int main() {
 
