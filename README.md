@@ -232,6 +232,11 @@ Here I am going to introduce two ways of possible improvement. Base on my analys
 
 The second way is that we use another way to divide the block. In my solution we only focus on dividing m substrings into blocks with equal length. What if we focus on the lengths of those substrings in stead of the number of them. I tried to design a new rule to make the block but the performance of the algorithm is not good. However, focus on the length seems more reasonable, or we can find another ways which focus on different property. 
 
+## Details of Implementation
+Detailed explanation of the algorithm:
+
+https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Code/CodeExplanation.md
+
 ## Execute The Code
 Execute the code of algorithms with three versions:
 
@@ -241,10 +246,7 @@ Execute the code of create dataset:
 
 https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Data/Execute.md
 
-## Details of Implementation
-Detailed explanation of the algorithm:
 
-https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Code/CodeExplanation.md
 ## Challenges Encountered
 For the design of alogorithm. When I have the **one step version** the time complexity become Non-fixed. So when adjust some of the part of the algorithm the result become unpredictable. As I give a **block version** there exist a parameter making the time consumption different but I can not find a common way which make **block version** perform the best in all datasets. I can just use a intuitive way to explain this phenomenon as a trade-off problem.
 
