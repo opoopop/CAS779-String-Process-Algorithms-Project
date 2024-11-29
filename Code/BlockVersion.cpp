@@ -242,7 +242,7 @@ void solve()
 
             // cut input into blocks ***************************
             vector<vector<int>>block;// index inside every vectory
-            int block_num = min(100,m);
+            int block_num = sqrt(m);
             int block_length=m/block_num;
             ll resultl = 0, resultr = 0;
             vector<int>temp;// temporary store the index
