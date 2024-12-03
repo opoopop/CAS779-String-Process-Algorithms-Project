@@ -146,7 +146,7 @@ $$
 
 We combine the first two substrings together and use the string now combines with the third one...until the last substring. The reversed version is also the same. Finally we compare this two hash values.
 ### One Step Version
-**One Step version** means unlike **Step to Step version**, we can get the hash value on the segment tree in one step. The main concept is that we use the whole subsequence to go throuth the tree. The advantage of this method is that compared with **Step to Step version**, we can go through one edge on the tree for at most one time, but when going through the edge we need a exta cost. For example. If we use **Step to Step version** we go through the edge between node `abcb` and `abcbacba` twice but now we just go through it for one time. This is like we merge the paths of `a` and `cb`.
+**One Step version** means unlike **Step to Step version**, we can get the hash value on the segment tree in one step. The main concept is that we use the whole subsequence to go throuth the tree. The advantage of this method is that compared with **Step to Step version**, we can go through one edge on the tree for at most one time, but when going through the edge we need a exta cost. For example. If we use **Step to Step version** we go through the edge between node `abcb` and `abcbacba` twice but now we just go through it for one time. This is like we merge the common paths of `a` and `cb` on the tree.
 
 <img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/segmenttree5.png" width="800" height="300" alt="Abstract">
 
