@@ -161,7 +161,7 @@ So now what we actually do is a trade-off. If the number of blocks is small than
 
 ### Additional Part
 For all the examples above I use **h=10** as a basic value in the hash function and do not take modulo operation. But in the code all the calculation take modulo operation because the result could be out of data storage range. In order to reduce hash collision we use 1331 as basic value and 1e9+7 as the modulo value. This value has already largely deduce the possiblility of hash collusion and we can do more to reduce this possibility. The following operation is not included in the code and can be added into if needed.
-Instead of use one hash value we can use a pair of number as the hash value using two different basic and modulo value. **h1=1331, h2=13331, mod1=1e9+7, mod2=998244353** is a good choice. We can use more values as the hash value, the more we use the possibility of hash collision reduced but it cost more time to calculate. What's more, I use **long long int** in my code but we can use a larger data storage range which is **int128**. Here is an code example of **int128**.
+Instead of use one hash value we can use a pair of number as the hash value using two different basic and modulo value. **h1=1331, h2=13331, mod1=1e9+7, mod2=998244353** is a good choice. We can use more values as the hash value, the more we use the possibility of hash collision reduced but it cost more time to calculate. What's more, I use **long long int** in my code but we can use a larger data storage range which is **int128** and this could also reduce the possiblility of hash collusion. Here is an code example of **int128**.
 
 ```c++
 inline __int128 read(){
