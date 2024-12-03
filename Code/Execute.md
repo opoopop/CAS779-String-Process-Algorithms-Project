@@ -63,9 +63,11 @@ The whole header files in it:
 #endif
 ```
 
-Because it's code from scratch so just this two header files need to be included. If your compiler do not have `<bits/stdc++.h>`just change it into:
+Because it's code from scratch so just this four header files need to be included. If your compiler do not have `<bits/stdc++.h>`just change it into:
 
 ```C++
+#include <algorithm>
+#include <complex>
 #include <iostream>
 #include <vector>
 ```
