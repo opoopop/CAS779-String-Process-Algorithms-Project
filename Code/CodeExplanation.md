@@ -58,7 +58,7 @@ vector<int>sub_r[2];
 
 ## Tree building
 
-This function is used for build the segment tree. We initialize **p=1, l=1, r=n**. Each time we cut the the string now into two parts from middle and use **p** to control the index. The recursion stop when it goes to the leaf of the tree.  In this recursive function we use the hash value of left and right child to calculate the hash value in the present node.  **j** is used for control if this is the reversed version.
+This function is used for build the segment tree. We initialize **p=1, l=1, r=n**. Each time we cut the the string now into two parts from middle and use **p** to control the index(p*2 means the left child and p*2+1 means the right one). The recursion stop when it goes to the leaf of the tree.  In this recursive function we use the hash value of left and right child to calculate the hash value in the present node.  **j** is used for control if this is the reversed version.
 
 ```c++
 void build(int j, int p, int l, int r)// p refer to index in segment tree
@@ -151,7 +151,7 @@ ll ask(int j, int p, int l, int r)
 
 ## Calculate the hash value of a subsequence
 
-This function return the hash value of a subsequence using substring query as a part of it. **length_now** means the total length of the subsequence in this recursion. We use the middle of node's left and right for the 'cut' and use binary search to quickly find the index of the segments of subsequence wihch [l,r] is smaller or equal to the current **l**, **r**, **mid** with the result of **opl**, **opr**,**opmid**. Then use the prefix array to calculate the next recursion's **length_now**. Notice that when recursing the left and right subsequence, there exist different conditions and for different conditions some parameters for next **ask_sqe()** also should change. conditions include:
+This function return the hash value of a subsequence using substring query as a part of it. **length_now** means the total length of the subsequence in this recursion. We use the middle of node's left and right for the 'cut' and use binary search to quickly find the index of the segments of subsequence wihch [l,r] is smaller or equal to the current **l**, **r**, **mid** with the result of **opl**, **opr**,**opmid**. Then use the prefix array to calculate the next recursion's **length_now**(**length_l** and **length_r**). Notice that when recursing the left and right subsequence, there exist different conditions and for different conditions some parameters for next **ask_sqe()** also should change. conditions include:
 
 1. If the subsequence now is a substring.
 2. If we 'cut' at an empty part(means this index do not have the character we want) or inside a substring.
