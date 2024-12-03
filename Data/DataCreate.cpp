@@ -1121,12 +1121,7 @@ void get_out() {
 
 }
 int main() {
-    /*
-    * 出题顺序一般是:
-    * 1. 调用get_in()随机生成in文件 或者手动输入in文件
-    * 2. 调用get_out读取in文件生成对应的out文件
-    * 3. 上传文件即可
-    */
+
 
     init();
    get_in1();
