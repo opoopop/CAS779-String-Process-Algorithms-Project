@@ -21,7 +21,7 @@
 
 ## Problem Setting
 
-Give a string ***S*** of length ***N*** consisting of lowercase English letters(it can be any alphabet as long long we give each alphabet a unique number).
+Give a string ***S*** of length ***N*** consisting of lowercase English letters(it can be any alphabet as long long we give each alphabet a unique number when using hash function).
 
 Process ***Q*** queries(Here Q is used for facilitate testing) described below in the order they are given.
 
