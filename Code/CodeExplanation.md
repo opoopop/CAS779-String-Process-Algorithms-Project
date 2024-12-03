@@ -58,7 +58,7 @@ vector<int>sub_r[2];
 
 ## Tree building
 
-This function is used for build the segment tree. We initialize **p=1, l=1, r=n**. Each time we cut the the string now into two parts from middle and use **p** to control the index(p*2 means the left child and p*2+1 means the right one). The recursion stop when it goes to the leaf of the tree.  In this recursive function we use the hash value of left and right child to calculate the hash value in the present node.  **j** is used for control if this is the reversed version.
+This function is used for build the segment tree. We initialize **p=1, l=1, r=n**. Each time we cut the the string now into two parts from middle and use **p** to control the index(**p*2** means the left child and **p*2+1** means the right one). The recursion stop when it goes to the leaf of the tree.  In this recursive function we use the hash value of left and right child to calculate the hash value in the present node.  **j** is used for control if this is the reversed version.
 
 ```c++
 void build(int j, int p, int l, int r)// p refer to index in segment tree
