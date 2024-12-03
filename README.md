@@ -113,19 +113,19 @@ Then we introduce the substring query which will be used as a part of subsequenc
 In this part we introduce how to construct this segment tree combines with hash function
 <img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/segmenttree1.png" width="850" height="400" alt="Abstract">
 
-We construct the tree like the picture above. We continue to divide the string into two part from middle until there is a single character. In every node of the tree we don't store the string we just store a **[L,R]** refer to the index in origional string and a harsh value **v**. The depth of this tree is *O(logn)* and it takes *O(nlogn)* of space complexity. Here in conveience of explanation the basic value of hash function **h=10** and **'a'=1;'b'=2;'c=3'**, so how to get the hash value **v** of a certain node x, it can use the following function. Here **x.L** and **x.R** refer to the left and right child of node **x**, **len()** means the length of the string that the node represent.
+We construct the tree like the picture above. We continue to divide the string into two part from middle until there is a single character. In every node of the tree we don't store the string we just store a **[L,R]** refer to the index in origional string and a harsh value **v**. The depth of this tree is *O(logn)* and it takes *O(nlogn)* of space complexity. Here in conveience of explanation the basic value of hash function we set **h=10** and **'a'=1;'b'=2;'c=3'**, so how to get the hash value **v** of a certain node x, it can use the following function. Here **x.L** and **x.R** refer to the left and right child of node **x**, **len()** means the length of the string that the node represent.
 
 $$
 V_x = V_{x.L} \times h^{len(x.R)} + V_{x.R}
 $$
 
-Here is a example of how calculate the hash value of $V_{abcb}$.
+Here is a example of how to calculate the hash value of $V_{abcb}$.
 
 <img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/segmenttree2.png" width="850" height="400" alt="Abstract">
 
 $V_{ab} =V_{a} \times 10^{1} + V_{b}=12$ and $V_{cb} =V_{c} \times 10^{1} + V_{b}=32$ . Then $V_{abcb}=V_{ab} \times 10^{2} + V_{cb}=1232$
 
-So we use a recursive way get the hash value from the bottom to the top. Calculate the hash value take *O(1)* time and the depth of this tree is *O(logn)*, there are *n* of leaves(single character nodes). So the time complexity of this preocess is *O(nlogn)*. Additionally, we build one more tree for the reversed version, here 'reverse' means we reverse the whole string, For example if the origional string is `abcd` we build a segment tree for `dcba`.
+So we use a recursive way getting the hash value from the bottom to the top. Calculate the hash value take *O(1)* time and the depth of this tree is *O(logn)*, there are *n* of leaves(single character nodes). So the time complexity of this preocess is *O(nlogn)*. Additionally, we build one more tree for the reversed version, here 'reverse' means we reverse the whole string, For example if the origional string is `abcd` we build a segment tree for `dcba`.
 ### Substring Query and String Update 
 When giving a substring we can get it's hash value through the segment tree. 
 
@@ -138,7 +138,7 @@ If we want to update a character in the string we just need to change *O(logn)* 
 <img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/segmenttree4.png" width="800" height="300" alt="Abstract">
 
 ### Step to Step Version
-**Step to Step version** means we consider the subsequence as m separate substrings. If we have two string **x**,**y** and their hash value, we combine them together using the following equation, here **len()** means the length of the string.
+**Step to Step version** means we consider the subsequence as **m** separate substrings. If we have two string **x**,**y** and their hash value, we combine them together using the following equation, here **len()** means the length of the string.
 
 $$
 V_{xy} = V_x \times h^{len(y)} + V_y
@@ -146,13 +146,13 @@ $$
 
 We combine the first two substrings together and use the string now combines with the third one...until the last substring. The reversed version is also the same. Finally we compare this two hash values.
 ### One Step Version
-**One Step version** means unlike **Step to Step version**, we can get the hash value on the segment tree in one step. The main concept is that we use the whole subsequence to go throuth the tree. The advantage of this method is that compared with **Step to Step version**, we can go through one edge on the tree for at most one time, but when going through the edge we need a exta cost. For example. If we use **Step to Step version** we go through the edge between `abcb` and `abcbacba` twice but now we just go through it for one time. This is like we merge the paths of `a` and `cb`.
+**One Step version** means unlike **Step to Step version**, we can get the hash value on the segment tree in one step. The main concept is that we use the whole subsequence to go throuth the tree. The advantage of this method is that compared with **Step to Step version**, we can go through one edge on the tree for at most one time, but when going through the edge we need a exta cost. For example. If we use **Step to Step version** we go through the edge between node `abcb` and `abcbacba` twice but now we just go through it for one time. This is like we merge the paths of `a` and `cb`.
 
 <img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/segmenttree5.png" width="800" height="300" alt="Abstract">
 
 But why do we need extra cost? Because when calculate the hash value one information we need is the length of a string. We are using the leftmost **L** and rightmost **R** of the subsequence as the parameter to go through the tree. However in the subsequence there exist some 'empty' part(the part which is included in **L** and **R** but do not includ in this subsequence)so we can not simply get the length we want. In order to get the length I use a prefix array which is **m** prefix value for the lengthes of substrings. For example if the susequence is [1,3], [6,7],[13,20] than the prefix array is [3,5,13]. We can use the binary search to get the part we are searching now by **L** and **R** taking *O(logm)* time and use prefix array to get the length we want in *O(1)*. Also in this step we refine the **L** and **R** for the next recursion. Before, we go through a edge and take *O(1)* to calculate the hash value, but now it cost *O(logm)*. For the details of how to use binary search to get the part we want and how to get the length in *O(1)* please read CodeExplanation.md.
 
-You may think that for every time of recursion the time complexity change from *O(1)* to *O(logm)* and we just do the search for one time, so the whole time complexity of this subsequence query algorithm is *O(logmlogn)*. But the answer is No. In the segments tree a part can be represent as *O(logn)* nodes must satisfy that this part is continous. But in our subsequence query though we still use **L** and **R**, some part inside is 'empty'. Give a example of this phenomenon. If in this tree we want a substring the `abcb` than we stop at node 'abcb' we just use one node. However now the subsequence we want is `a` `cb` we go deeper and use more nodes. So only in the best condition, we divide the subsequence into *O(logn)* nodes, The total time complexity is *O(logmlogn)*.    
+You may think that for every time of recursion the time complexity change from *O(1)* to *O(logm)* and we just do the search for one time, so the whole time complexity of this subsequence query algorithm is *O(logmlogn)*. But the answer is No. In the segments tree a part can be represent as *O(logn)* nodes must satisfy that this part is continuous. But in our subsequence query though we still use **L** and **R**, some part inside is 'empty'. Give a example of this phenomenon. If in this tree we want a substring the `abcb` than we stop at node 'abcb' we just use one node. However now the subsequence we want is `a` `cb` we go deeper and use more nodes. So only in the best condition, we divide the subsequence into *O(logn)* nodes, The total time complexity is *O(logmlogn)*.    
 
 ### Block Version
 Now we go to **Block version**. both **One Step version** and **Step to Step version** can be considered as a special case of **Block version**. In this version we divide the substrings of subsequence into different blocks equally and do **One Step version** for each block. Finally, we combine the answer of these blocks together as the result. **Step to Step version** can consider as the number of block is m and in **One Step version** the number is one.
