@@ -28,7 +28,7 @@ Process ***Q*** queries(Here Q is used for facilitate testing) described below i
 There are two types of queries:
 
 - `1 x c` Change the *x*-th character of *S* to the lowercase English letter *c*.
-- `2 m [L1,R1], [L2,R2]...[Lm,Rm]` If the subsequence which consist of m segments of S is a palindrome, print `Yes`; otherwise, print `No`.
+- `2 m [L1,R1], [L2,R2]...[Lm,Rm]` If the subsequence which consist of m substrings of S is a palindrome, print `Yes`; otherwise, print `No`.
 
 ### Input Format
 Firstly input a number `T` refer to the number of test cases.
@@ -105,9 +105,9 @@ Than we update the string into `ababacbaaacaba` and ask for the same subsequence
 
 The algorithm explanation part go through different stages, as shown in the picture above.
 
-Firstly, we use [segment tree](https://en.wikipedia.org/wiki/Segment_tree)(static range tree) combine with the [hash function](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm). The preprocess of segment tree take *O(nlogn)* of time complexity and *O(nlogn)* of space complexity. The process of update the string in each query take *O(logn)* of time complexity.
+Firstly, we use [segment tree](https://en.wikipedia.org/wiki/Segment_tree)(static range tree) combine with the [hash function](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm) from Rabin–Karp algorithm. The preprocess of segment tree take *O(nlogn)* of time complexity and *O(nlogn)* of space complexity. The process of update the string in each query take *O(logn)* of time complexity.
 
-Then we introduce the substring query which will be used as a part of subsequence query. Answer this query take *O(logn)* of time complexity. Additional, we introduce the *O(logn)* update process in this part. Then for the **Step to Step version** it takse *O(mlogn)* of time complexity for each subsequence query. The time complexity of **One step version** is not fixed but it has a lowerbound *O(logmlogn)* and according to the test it's smaller or equal to **Step to Step version**. Finally we introduce the **Block version** which can consider as a variant of **Step to Step version** and **One step version**. The time complexity of this version has the upperbound of *O(mlogn)* and the lowerbound of *O(logmlogn)*. 
+Then we introduce the substring query which will be used as a part of subsequence query. Answering this query take *O(logn)* of time complexity. Additional, we introduce the *O(logn)* update process in this part. Then for the **Step to Step version** it takse *O(mlogn)* of time complexity for each subsequence query. The time complexity of **One Step version** is not fixed but it has a lowerbound *O(logmlogn)* and according to the test it's smaller or equal to **Step to Step version**. Finally we introduce the **Block version** which can consider as a variant of **Step to Step version** and **One Step version**. The time complexity of this version has the upperbound of *O(mlogn)* and the lowerbound of *O(logmlogn)*. 
 
 ### Preprocess Part
 In this part we introduce how to construct this segment tree combines with hash function
@@ -138,7 +138,7 @@ If we want to update a character in the string we just need to change *O(logn)* 
 <img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/segmenttree4.png" width="800" height="300" alt="Abstract">
 
 ### Step to Step Version
-**Step to step version** means we consider the subsequence as m separate substrings. If we have two string **x**,**y** and their hash value, we combine them together using the following equation, here **len()** means the length of the string.
+**Step to Step version** means we consider the subsequence as m separate substrings. If we have two string **x**,**y** and their hash value, we combine them together using the following equation, here **len()** means the length of the string.
 
 $$
 V_{xy} = V_x \times h^{len(y)} + V_y
@@ -146,7 +146,7 @@ $$
 
 We combine the first two substrings together and use the string now combines with the third one...until the last substring. The reversed version is also the same. Finally we compare this two hash values.
 ### One Step Version
-**One step version** means unlike **step to step version**, we can get the hash value on the segment tree in one step. The main concept is that we use the whole subsequence to go throuth the tree. The advantage of this method is that compared with **step to step version**, we can go through one edge on the tree for at most one time, but when going through the edge we need a exta cost. For example. If we use **step to step version** we go through the edge between `abcb` and `abcbacba` twice but now we just go through it for one time. This is like we merge the paths of `a` and `cb`.
+**One Step version** means unlike **Step to Step version**, we can get the hash value on the segment tree in one step. The main concept is that we use the whole subsequence to go throuth the tree. The advantage of this method is that compared with **Step to Step version**, we can go through one edge on the tree for at most one time, but when going through the edge we need a exta cost. For example. If we use **Step to Step version** we go through the edge between `abcb` and `abcbacba` twice but now we just go through it for one time. This is like we merge the paths of `a` and `cb`.
 
 <img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/segmenttree5.png" width="800" height="300" alt="Abstract">
 
@@ -155,7 +155,7 @@ But why do we need extra cost? Because when calculate the hash value one informa
 You may think that for every time of recursion the time complexity change from *O(1)* to *O(logm)* and we just do the search for one time, so the whole time complexity of this subsequence query algorithm is *O(logmlogn)*. But the answer is No. In the segments tree a part can be represent as *O(logn)* nodes must satisfy that this part is continous. But in our subsequence query though we still use **L** and **R**, some part inside is 'empty'. Give a example of this phenomenon. If in this tree we want a substring the `abcb` than we stop at node 'abcb' we just use one node. However now the subsequence we want is `a` `cb` we go deeper and use more nodes. So only in the best condition, we divide the subsequence into *O(logn)* nodes, The total time complexity is *O(logmlogn)*.    
 
 ### Block Version
-Now we go to **block version**. both **One Step version** and **Step to Step version** can be considered as a special case of **block version**. In this version we divide the substrings of subsequence into different blocks equally and do **one step version** for each block. Finally, we combine the answer of these blocks together as the result. **Step to Step version** can consider as the number of block is m and in **One Step version** the number is one.
+Now we go to **Block version**. both **One Step version** and **Step to Step version** can be considered as a special case of **Block version**. In this version we divide the substrings of subsequence into different blocks equally and do **One Step version** for each block. Finally, we combine the answer of these blocks together as the result. **Step to Step version** can consider as the number of block is m and in **One Step version** the number is one.
 
 So now what we actually do is a trade-off. If the number of blocks is small than the length of each block is large which means we merge more paths but if we merge more path we spend more *O(logm)* instead of *O(1)*. As what we are going to show in the result analysis the choice of the number of the block will influence the time it spend. There is one thing we can make sure is that if the number of block is 1 than it's a **Step to Step version** so the time comlpexity of **Block version** is *O(mlogn)*, that's why *O(mlogn)* is the upperbound. When m=1 it becomes a **One Step Version**. Though the time it spend is unpredictable we know that *O(logmlogn)* is the lowerbound.
 
@@ -208,9 +208,9 @@ First 4 datasets have small size in order to prove the correctness of the algori
 | One Step version                       | 4 ms  | 1836 ms | 2412 ms | 1136 ms  | 920 ms  | 620 ms |
 | Block version (block_num=sqrt(m))      | 4 ms  | 2522 ms | 2680 ms | 852 ms  | 760 ms  | 652 ms |
 
-This is the test result of last 6 datasets in **5.in** becasue of this is a substring query so three versions show no differences. In **6.in** and **7.in** the **Block version** is almost the same as **step to step verison** because we select block_num=sqrt(m) and m is small, But **One step version** shows a improvement of the speed. In **8.in** and **9.in** the m is bigger and the **block version** shows better performance but in **10.in** when m=100 all of them have similar performance.
+This is the test result of last 6 datasets in **5.in** becasue of this is a substring query so three versions show no differences. In **6.in** and **7.in** the **Block version** is almost the same as **Step to Step verison** because we select block_num=sqrt(m) and m is small, But **One Step version** shows a improvement of the speed. In **8.in** and **9.in** the m is bigger and the **Block version** shows better performance but in **10.in** when m=100 all of them have similar performance.
 
-In **8.in** m is large which is equal to 5e4. We select **8.in** to show that the choice of **block_num** will influence the peformance of the algorithm. 
+In **8.in** m is large which is equal to 5e4. We select **8.in** to show that the choice of **Block_num** will influence the peformance of the algorithm. 
 
 <img src="https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Image/blockanalysist.png" width="540" height="350" alt="graphofperformance">
 
@@ -248,7 +248,7 @@ https://github.com/opoopop/CAS779-String-Process-Algorithms-Project/blob/main/Da
 
 
 ## Challenges Encountered
-For the design of alogorithm. When I have the **one step version** the time complexity become Non-fixed. So when adjust some of the part of the algorithm the result become unpredictable. As I give a **block version** there exist a parameter making the time consumption different but I can not find a common way which make **block version** perform the best in all datasets. I can just use a intuitive way to explain this phenomenon as a trade-off problem.
+For the design of alogorithm. When I have the **One Step version** the time complexity become Non-fixed. So when adjust some of the part of the algorithm the result become unpredictable. As I give a **Block version** there exist a parameter making the time consumption different but I can not find a common way which make **Block version** perform the best in all datasets. I can just use a intuitive way to explain this phenomenon as a trade-off problem.
 
 For the implement of algorithm. There is one part spend me some time to debug which is the function return a hash value of the whole subsequence(**ask_sqe()**). I use binary seach to locate the index and use prefix array to get the length I want. This step invlove different conditionals. Different conditions correspond to different parameters to the next recursion. The other part went well through coding as I properly use the property of hash function and segment tree.
 
