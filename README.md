@@ -33,7 +33,7 @@ There are two types of queries:
 ### Input Format
 Firstly input a number `T` refer to the number of test cases.
 
-Than for each of the test case. Here, query<sub>i</sub> is the *i*-th query to processing.
+Then for each of the test case. Here, query<sub>i</sub> is the *i*-th query to processing.
 
 ```c++
 N Q
