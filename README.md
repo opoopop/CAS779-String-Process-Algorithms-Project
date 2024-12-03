@@ -21,7 +21,7 @@
 
 ## Problem Setting
 
-Give a string ***S*** of length ***N*** consisting of lowercase English letters.
+Give a string ***S*** of length ***N*** consisting of lowercase English letters(it can be any alphabet as long long we give each alphabet a unique number).
 
 Process ***Q*** queries(Here Q is used for facilitate testing) described below in the order they are given.
 
